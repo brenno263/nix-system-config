@@ -4,8 +4,13 @@
   programs.zsh.enable = true;
   environment.shells = [pkgs.bash pkgs.zsh];
   environment.loginShell = pkgs.zsh;
-  environment.systemPackages = [
-    pkgs.coreutils
+  environment.systemPackages = with pkgs; [
+    coreutils
+    rustup
+    python311
+    nodejs_20
+    azure-cli
+    awscli2
   ];
   # environment.systemPath = ["/opt/homebrew/bin"];
   # environment.pathsToLink = ["/Applications"];
@@ -30,6 +35,6 @@
     onActivation.cleanup = "zap";
     masApps = {};
     casks = ["raycast" "amethyst"];
-    brews = ["azure-cli" "node" "python"];
+    brews = [];
   };
 }
