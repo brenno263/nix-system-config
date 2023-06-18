@@ -25,8 +25,9 @@
     enable = true;
     caskArgs.no_quarantine = true;
     global.brewfile = true;
+    onActivation.cleanup = "zap";
     masApps = {};
     casks = ["raycast" "amethyst"];
-    brews = ["trippy"];
+    brews = ["azure-cli" "node" "python"];
   };
 }
