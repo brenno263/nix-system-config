@@ -4,7 +4,9 @@
   programs.zsh.enable = true;
   environment.shells = [pkgs.bash pkgs.zsh];
   environment.loginShell = pkgs.zsh;
-  environment.systemPackages = [pkgs.coreutils];
+  environment.systemPackages = [
+    pkgs.coreutils
+  ];
   # environment.systemPath = ["/opt/homebrew/bin"];
   # environment.pathsToLink = ["/Applications"];
   nix.extraOptions = ''

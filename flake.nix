@@ -3,6 +3,8 @@
   inputs = {
     # Where we get most of our software, giant monorepo
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
 
     # Managers configs and links things into home dir
     home-manager.url = "github:nix-community/home-manager/master";
@@ -17,15 +19,29 @@
   };
   outputs = inputs @ {
     nixpkgs,
+    nixpkgs-stable,
+    nixpkgs-unstable,
     home-manager,
     darwin,
     pwnvim,
     ...
-  }: {
+  }: let
+    mkPkgs = system:
+      import nixpkgs {
+        inherit system;
+        inherit
+          (import ./modules/overlays.nix {
+            inherit inputs nixpkgs-unstable nixpkgs-stable;
+          })
+          overlays
+          ;
+        config = import ./config.nix;
+      };
+  in {
     # Nix-Darwin looks for this key
     darwinConfigurations.Brennans-MacBook-Pro = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
-      pkgs = import nixpkgs {system = "x86_64-darwin";};
+      pkgs = mkPkgs "x86_64-darwin";
       modules = [
         ./modules/darwin
         home-manager.darwinModules.home-manager
