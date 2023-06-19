@@ -11,7 +11,6 @@
     pkgs.fd
     pkgs.curl
     pkgs.less
-    pkgs.spotify
     pwnvim.packages."x86_64-darwin".default
   ];
   home.sessionVariables = {

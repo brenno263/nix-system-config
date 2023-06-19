@@ -18,7 +18,7 @@
     global.brewfile = true;
     onActivation.cleanup = "zap";
     masApps = {};
-    casks = ["raycast"];
+    casks = ["raycast" "spotify"];
     brews = [];
   };
   nix.extraOptions = ''
@@ -136,8 +136,6 @@
       show-recents = false;
       tilesize = 64;
     };
-    defaults.loginwindow.LoginwindowText = "Now where could my pipe be?";
-    defaults.loginwindow.autoLoginUser = "bseymour";
     defaults.screencapture.disable-shadow = true;
     defaults.screencapture.location = "/Users/bseymour/Pictures/Screenshots";
     defaults.screencapture.type = "png";
