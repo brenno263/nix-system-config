@@ -1,5 +1,5 @@
 {
-  description = "my minimal flake";
+  description = "System configuraton for my company macbook";
   inputs = {
     # Where we get most of our software, giant monorepo
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";

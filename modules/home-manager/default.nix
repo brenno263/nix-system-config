@@ -1,8 +1,11 @@
-{pkgs, pwnvim, ...}: {
+{
+  pkgs,
+  pwnvim,
+  ...
+}: {
   #backwards-compat measure, do not change
   home.stateVersion = "22.11";
 
-  #specify my home-manager configs
   home.packages = [
     pkgs.ripgrep
     pkgs.fd
@@ -25,13 +28,28 @@
   programs.zsh.enableCompletion = true;
   programs.zsh.enableAutosuggestions = true;
   programs.zsh.enableSyntaxHighlighting = true;
-  programs.zsh.shellAliases = {ls = "ls --color=auto -F";};
+  programs.zsh.shellAliases = {
+    ls = "ls --color=auto -F";
+    nixupdate = "pushd ~/src/system-config; nix flake update; nixswitch; popd";
+    nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
+  };
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;
   programs.alacritty = {
     enable = true;
     settings.font.normal.family = "MesloLGS Nerd Font Mono";
     settings.font.size = 16;
+  };
+  programs.git = {
+    enable = true;
+    aliases = {
+      co = "checkout";
+      st = "status";
+      cm = "commit";
+    };
+    delta.enable = true;
+    userEmail = "bseymour@sourceallies.com";
+    userName = "Brennan Seymour";
   };
   home.file.".inputrc".text = ''
     set show-all-if-ambiguous on
