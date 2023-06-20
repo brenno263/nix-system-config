@@ -18,7 +18,7 @@
     global.brewfile = true;
     onActivation.cleanup = "zap";
     masApps = {};
-    casks = ["raycast" "spotify"];
+    casks = ["raycast" "spotify" "firefox"];
     brews = [];
   };
   nix.extraOptions = ''
@@ -62,8 +62,8 @@
       ${mod} - l : yabai -m window --focus east
 
       # Change Display
-      # ${mod} - s : yabai -m display --focus west
-      # ${mod} - g : yabai -m display --focus east
+      # ${mod} - p : yabai -m display --focus west
+      # ${mod} - n : yabai -m display --focus east
 
       # Rotate & Flip
       shift + ${mod} - r : yabai -m space --rotate 90
