@@ -11,6 +11,7 @@
     pkgs.fd
     pkgs.curl
     pkgs.less
+    pkgs.cowsay
     pwnvim.packages."x86_64-darwin".default
   ];
   home.sessionVariables = {
@@ -31,6 +32,8 @@
     ls = "ls --color=auto -F";
     nixupdate = "pushd ~/src/system-config; nix flake update; nixswitch; popd";
     nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
+    bruh = "cowsay bruh";
+    pdfmerge = "'/System/Library/Automator/Combine PDF Pages.action/Contents/MacOS/join' -o merged.pdf ./*.pdf";
   };
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;

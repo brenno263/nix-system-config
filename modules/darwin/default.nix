@@ -18,8 +18,8 @@
     global.brewfile = true;
     onActivation.cleanup = "zap";
     masApps = {};
-    casks = ["raycast" "spotify" "firefox" "discord"];
-    brews = [];
+    casks = ["raycast" "spotify" "firefox" "discord" "gimp"];
+    brews = ["docker"];
   };
   nix.extraOptions = ''
     experimental-features = nix-command flakes
