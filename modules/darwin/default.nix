@@ -18,7 +18,7 @@
     global.brewfile = true;
     onActivation.cleanup = "zap";
     masApps = {};
-    casks = ["raycast" "spotify" "firefox" "discord" "gimp"];
+    casks = ["raycast" "spotify" "firefox" "discord" "gimp" "steam"];
     brews = ["docker"];
   };
   nix.extraOptions = ''
