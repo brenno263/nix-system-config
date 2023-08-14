@@ -14,7 +14,7 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Tricked out nvim
+    # nvim config. I'm not using it but I'll leave it in as a reminder of how to do such a thing
     pwnvim.url = "github:zmre/pwnvim";
   };
   outputs = inputs @ {

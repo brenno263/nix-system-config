@@ -7,10 +7,10 @@
   environment.systemPackages = with pkgs; [
     coreutils
     rustup
-    python311
     nodejs_20
     azure-cli
     awscli2
+    aws-sam-cli
   ];
   homebrew = {
     enable = true;
@@ -19,7 +19,7 @@
     onActivation.cleanup = "zap";
     masApps = {};
     casks = ["raycast" "spotify" "firefox" "discord" "gimp" "steam"];
-    brews = ["docker"];
+    brews = ["docker" "python3"];
   };
   nix.extraOptions = ''
     experimental-features = nix-command flakes
@@ -48,6 +48,7 @@
       yabai -m mouse_drop_action swap
       yabai -m rule --add app="^System Settings$" manage=off
       yabai -m rule --add app="^Calculator$" manage=off
+      yabai -m rule --add app="^Steam$" manage=off
     '';
   };
   services.skhd = {

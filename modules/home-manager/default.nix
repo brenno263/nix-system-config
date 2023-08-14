@@ -12,13 +12,15 @@
     pkgs.curl
     pkgs.less
     pkgs.cowsay
-    pwnvim.packages."x86_64-darwin".default
+    #pwnvim.packages."x86_64-darwin".defaut
+    pkgs.vimPlugins.LazyVim
   ];
   home.sessionVariables = {
     PAGER = "less";
     CLICOLOR = 1;
     EDITOR = "nvim";
   };
+  programs.neovim.enable = true;
   programs.bat.enable = true;
   programs.bat.config.theme = "TwoDark";
   programs.fzf.enable = true;
@@ -35,6 +37,17 @@
     bruh = "cowsay bruh";
     pdfmerge = "'/System/Library/Automator/Combine PDF Pages.action/Contents/MacOS/join' -o merged.pdf ./*.pdf";
   };
+  programs.zsh.initExtra = ''
+    function lazygit() {
+      git add --all
+      git commit -m "$1"
+      git push
+    }
+  '';
+  programs.zsh.profileExtra = ''
+    export PATH="$PATH:/Users/bseymour/Library/Python"
+    eval "$(/usr/local/bin/brew shellenv)"
+  '';
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;
   programs.alacritty = {
